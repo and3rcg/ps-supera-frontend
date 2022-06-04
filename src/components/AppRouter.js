@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // app components
@@ -8,13 +8,13 @@ import HomePage from '../pages/HomePage';
 
 export default function AppRouter() {
     return (
-        <div>
+        <Fragment>
             <Router>
                 <Routes>
                     <Route path="" element={<HomePage />} />
                 </Routes>
             </Router>
-        </div>
+        </Fragment>
     );
 }
 

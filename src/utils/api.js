@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseURL = 'http://127.0.0.1:8000/api/'; // API url
 
-const axiosInstance = axios.create({
+const api = axios.create({
     baseURL: baseURL,
     timeout: 3000, // timeout in ms to avoid system hanging
     headers: {
@@ -15,7 +15,7 @@ const axiosInstance = axios.create({
     },
 });
 
-axiosInstance.interceptors.response.use(
+api.interceptors.response.use(
     (response) => {
         return response;
     },
@@ -54,18 +54,17 @@ axiosInstance.interceptors.response.use(
                 const now = Math.ceil(Date.now() / 1000);
 
                 if (tokenParts.exp > now) {
-                    return axiosInstance
+                    return api
                         .post('/auth/jwt/refresh/', { refresh: refreshToken })
                         .then((response) => {
                             localStorage.setItem('access_token', response.data.access);
                             localStorage.setItem('refresh_token', response.data.refresh);
 
-                            axiosInstance.defaults.headers['Authorization'] =
-                                'JWT ' + response.data.access;
+                            api.defaults.headers['Authorization'] = 'JWT ' + response.data.access;
                             originalRequest.headers['Authorization'] =
                                 'JWT ' + response.data.access;
 
-                            return axiosInstance(originalRequest);
+                            return api(originalRequest);
                         })
                         .catch((err) => {
                             console.log(err);
@@ -85,4 +84,4 @@ axiosInstance.interceptors.response.use(
     }
 );
 
-export default axiosInstance;
+export default api;
