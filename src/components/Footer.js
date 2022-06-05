@@ -62,8 +62,6 @@ function Footer() {
                     Somos uma loja fictícia de games. <br />
                     Website programado por Anderson Caminha.
                 </Descricao>
-            </Left>
-            <Center>
                 <ContainerSocial>
                     <IconeSocial href="https://github.com/and3rcg">
                         <GitHub />
@@ -75,7 +73,8 @@ function Footer() {
                         <Instagram />
                     </IconeSocial>
                 </ContainerSocial>
-            </Center>
+            </Left>
+            <Center></Center>
             <Right>
                 <Descricao>
                     E-mail: suporte@superagames.com

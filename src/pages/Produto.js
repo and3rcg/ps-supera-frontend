@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 
-import api from '../utils/api';
+import api from '../api/axios';
 import { filtroReais } from '../utils/filters';
 
 const Container = styled.div`

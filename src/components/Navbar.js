@@ -34,6 +34,11 @@ const Logo = styled.a`
     font-size: 28px;
 `;
 
+const NavbarLink = styled.a`
+    text-decoration: none;
+    color: white;
+`;
+
 const Center = styled.div`
     font-weight: 400;
     flex: 2;
@@ -93,8 +98,12 @@ export default function Navbar() {
                     </SearchBarContainer>
                 </Center>
                 <Right>
-                    <MenuItem>Registrar</MenuItem>
-                    <MenuItem>Login</MenuItem>
+                    <MenuItem>
+                        <NavbarLink href="/login">Login</NavbarLink>
+                    </MenuItem>
+                    <MenuItem>
+                        <NavbarLink href="/registro">Registrar</NavbarLink>
+                    </MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
                             <ShoppingCart />

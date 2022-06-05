@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // app components
 import HomePage from '../pages/HomePage';
 import Produto from '../pages/Produto';
+import Login from '../pages/Login';
+import Registro from '../pages/Registro';
+import Perfil from '../pages/Perfil';
 
 // This component will house all routes of the app.
 
@@ -14,6 +17,9 @@ export default function AppRouter() {
                 <Routes>
                     <Route path="" element={<HomePage />} />
                     <Route path="/:slug" element={<Produto />} />
+                    <Route path="/registro" element={<Registro />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/perfil" element={<Perfil />} />
                 </Routes>
             </Router>
         </Fragment>

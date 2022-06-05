@@ -15,8 +15,8 @@ const CardProduto = styled.div`
 
 const ImagemJogo = styled.img`
     float: left;
-    max-width: 100%;
-    height: auto;
+    max-height: 180px;
+    max-height: auto;
 `;
 
 const DadosJogo = styled.div`
