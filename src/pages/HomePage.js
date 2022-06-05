@@ -1,6 +1,19 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import styled from 'styled-components';
+
+import ProdutoThumbnail from '../components/ProdutoThumbnail';
+
 import api from '../utils/api';
-import { filtroReais } from '../utils/filters';
+
+const ThumbnailContainer = styled.div`
+    display: flex;
+    width: 80vw;
+    margin: 10px auto;
+    flex-wrap: wrap;
+    align-self: space-around;
+    justify-content: space-around;
+    padding: 10px 30px;
+`;
 
 function HomePage() {
     const [listaProdutos, setListaProdutos] = useState([]);
@@ -8,17 +21,21 @@ function HomePage() {
     useEffect(() => {
         api.get('produtos').then((res) => setListaProdutos(res.data));
     }, []);
-    // console.log(listaProdutos);
 
     return (
         <Fragment>
-            {listaProdutos.map((produto) => (
-                <Fragment>
-                    <h1>{produto.nome}</h1>
-                    <p>{filtroReais(produto.preco)}</p>
-                    <img src={produto.imagem} alt={produto.slug} />
-                </Fragment>
-            ))}
+            <h1>JOGOS À VENDA</h1>
+            <hr />
+            <ThumbnailContainer>
+                {listaProdutos.map((produto) => (
+                    <ProdutoThumbnail
+                        imagem={produto.imagem}
+                        nome={produto.nome}
+                        preco={produto.preco}
+                        slug={produto.slug}
+                    />
+                ))}
+            </ThumbnailContainer>
         </Fragment>
     );
 }
